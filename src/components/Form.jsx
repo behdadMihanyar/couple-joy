@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { statusReverse } from "../redux/slice";
+import { FaWpforms } from "react-icons/fa6";
 const Form = () => {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
@@ -15,9 +16,16 @@ const Form = () => {
         onSubmit={(e) => submitHandler(e)}
         className="h-screen w-full flex flex-col justify-center content-center items-center"
       >
+        <span className="opacity-100 z-100 font-bold mb-5 text-2xl text-shadow-xl shadow-black">
+          Welcome to Couple Joy
+        </span>
         <div className="max-sm:w-auto h-120 shadow-2xl shadow-black bg-gray-800/90 grid z-100 grid-cols-1 rounded-4xl p-3 lg:grid-cols-5 lg:w-200 ">
           <div></div>
           <div className="grid grid-span-4 col-span-3 p-3 content-center text-center gap-3 font-bold text-white">
+            <div className="sm: hidden lg:flex justify-center">
+              <FaWpforms style={{ scale: "3" }} />
+            </div>
+            <div></div>
             <label>Name</label>
             <input
               autoFocus

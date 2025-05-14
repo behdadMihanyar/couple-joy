@@ -15,7 +15,7 @@ const Form = () => {
         onSubmit={(e) => submitHandler(e)}
         className="h-screen w-full flex flex-col justify-center content-center items-center"
       >
-        <div className="w-100 h-auto shadow-2xl shadow-black bg-gray-800/90 grid z-100 grid-cols-1 rounded-4xl p-3 lg:grid-cols-5 lg:w-200 ">
+        <div className="max-sm:w-auto h-120 shadow-2xl shadow-black bg-gray-800/90 grid z-100 grid-cols-1 rounded-4xl p-3 lg:grid-cols-5 lg:w-200 ">
           <div></div>
           <div className="grid grid-span-4 col-span-3 p-3 content-center text-center gap-3 font-bold text-white">
             <label>Name</label>

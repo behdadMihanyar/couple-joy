@@ -11,6 +11,7 @@ import Profile from "./Pages/Profile";
 import { IoMdArrowBack } from "react-icons/io";
 import Behdad from "./Pages/Behdad";
 import Layout from "./layout/Layout";
+import Friends from "./Pages/Friends";
 const App = () => {
   const route = createBrowserRouter(
     createRoutesFromElements(
@@ -19,6 +20,8 @@ const App = () => {
         <Route path="/chat" element={<Chat />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/behdad" element={<Behdad />} />
+        <Route path="/friends" element={<Friends />} />
+
         <Route
           path="*"
           element={

@@ -44,8 +44,18 @@ const like = createSlice({
         fourth: false,
       };
     },
+    statusReverse: (state) => {
+      state.status = false;
+    },
   },
 });
 export default like.reducer;
-export const { incremenet, decrement, first, second, third, fourth } =
-  like.actions;
+export const {
+  statusReverse,
+  incremenet,
+  decrement,
+  first,
+  second,
+  third,
+  fourth,
+} = like.actions;

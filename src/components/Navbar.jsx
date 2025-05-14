@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const counter = useSelector((state) => state.like.counter);
   return (
-    <div>
+    <div className="w-full">
       <nav>
         <ul className="flex gap-3 justify-around bg-pink-500 fixed w-full bottom-0 p-2 z-10 rounded-t-2xl ">
           <li className="flex flex-col items-center text-center">
@@ -37,7 +37,7 @@ const Navbar = () => {
               {counter >= 1 && <span className="txt-sm">{counter}</span>}
             </div>
 
-            <Link to="/firends" className="text-center text-amber-50">
+            <Link to="/friends" className="text-center text-amber-50">
               Friends
             </Link>
           </li>

@@ -1,14 +1,26 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { statusReverse } from "../redux/slice";
 import { FaWpforms } from "react-icons/fa6";
-const Form = () => {
+import { statusReverse } from "../redux/slice";
+import validation from "../Validation/formValidation";
+import toast, { Toaster } from "react-hot-toast";
+const Form = ({ user, setUser }) => {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
+    validation(user);
     dispatch(statusReverse());
+    toast(`Hello ${user.name}!`, {
+      icon: "👏",
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
     console.log(e);
   };
+  console.log(user);
   return (
     <>
       <div className="absolute w-full h-screen bg-cover z-10 opacity-90 bg-[url(https://png.pngtree.com/background/20250104/original/pngtree-seamless-stipple-linear-pink-hearts-valentine-s-day-background-aesthetic-vector-picture-image_15231608.jpg)]"></div>
@@ -30,17 +42,38 @@ const Form = () => {
             <input
               autoFocus
               type="text"
+              onChange={(e) =>
+                setUser((prev) => ({
+                  ...prev,
+                  name: e.target.value,
+                }))
+              }
+              value={user.name}
               placeholder="type here ..."
               className="border-white border-2 p-3 rounded-full focus:scale-110 transition ease focus:bg-white/20"
             />
             <label>Family</label>
             <input
+              value={user.family}
+              onChange={(e) =>
+                setUser((prev) => ({
+                  ...prev,
+                  family: e.target.value,
+                }))
+              }
               type="text"
               placeholder="type here ..."
               className="border-white border-2 p-3 rounded-full focus:scale-110 transition ease focus:bg-white/20"
             />
             <label>Phone</label>
             <input
+              value={user.phoneNumber}
+              onChange={(e) =>
+                setUser((prev) => ({
+                  ...prev,
+                  phoneNumber: e.target.value,
+                }))
+              }
               type="number"
               placeholder="09xxxxxxxxx"
               className="border-white border-2 p-3 rounded-full focus:scale-110 transition ease focus:bg-white/20"

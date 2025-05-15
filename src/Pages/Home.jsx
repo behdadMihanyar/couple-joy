@@ -5,16 +5,17 @@ import Contact from "../components/Contact";
 import Form from "../components/Form";
 import { useSelector } from "react-redux";
 import Friends from "./Friends";
+import { useState } from "react";
 const Home = () => {
+  const [user, setUser] = useState({ name: "", family: "", phoneNumber: "" });
   const states = useSelector((state) => state.like);
   console.log(states.status);
   return (
     <>
       {states.status ? (
-        <Form />
+        <Form user={user} setUser={setUser} />
       ) : (
         <>
-          {" "}
           <Contact />
           <Navbar />
           <div className="lg:flex justify-center flex-col items-center">
@@ -37,7 +38,9 @@ const Home = () => {
             <div className="w-full lg:w-300">
               <div className="mt-10 flex justify-between rounded-full bg-fuchsia-400/30 p-7">
                 <div>
-                  <p className="text-white/50">Bio</p>
+                  <p className="text-white/50">
+                    {user.name} {user.family}
+                  </p>
                   <p className="text-2xl text-white">00:11:15</p>
                 </div>
                 <button className="bg-red-900/70 rounded-full p-5 text-white hover:bg-red-900/90 ease-in-out transition cursor-pointer">
@@ -98,7 +101,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="w-full flex justify-center ">
+          <div className="w-full flex justify-center mb-10">
             <div className="flex justify-between p-7 bg-linear-65 bg-fuchsia-800/40 rounded-full mt-3 mb-3 w-300">
               <div>
                 <img

@@ -31,7 +31,7 @@ const Form = ({ user, setUser }) => {
         <span className="opacity-100 z-100 font-bold mb-5 text-2xl text-shadow-xl shadow-black">
           Welcome to Couple Joy
         </span>
-        <div className="max-sm:w-auto h-120 shadow-2xl shadow-black bg-gray-800/90 grid z-100 grid-cols-1 rounded-4xl p-3 lg:grid-cols-5 lg:w-200 ">
+        <div className="max-sm:w-auto h-120 shadow-2xl shadow-black bg-pink-700/90 grid z-100 grid-cols-1 rounded-4xl p-3 lg:grid-cols-5 lg:w-200 ">
           <div></div>
           <div className="grid grid-span-4 col-span-3 p-3 content-center text-center gap-3 font-bold text-white">
             <div className="sm: hidden lg:flex justify-center">
@@ -49,7 +49,7 @@ const Form = ({ user, setUser }) => {
                 }))
               }
               value={user.name}
-              placeholder="type here ..."
+              placeholder="Type here ..."
               className="border-white border-2 p-3 rounded-full focus:scale-110 transition ease focus:bg-white/20"
             />
             <label>Family</label>
@@ -62,7 +62,7 @@ const Form = ({ user, setUser }) => {
                 }))
               }
               type="text"
-              placeholder="type here ..."
+              placeholder="Type here ..."
               className="border-white border-2 p-3 rounded-full focus:scale-110 transition ease focus:bg-white/20"
             />
             <label>Phone</label>

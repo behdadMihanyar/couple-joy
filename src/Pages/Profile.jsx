@@ -23,6 +23,7 @@ const Profile = () => {
     e.preventDefault();
     validation(select);
     dispatch(statusReverse());
+    navigate("/profile");
   };
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -42,12 +43,15 @@ const Profile = () => {
     <>
       {bio ? (
         <div className="w-full h-screen z-50 bg-pink-600 overflow-hidden transition ease-in flex flex-col justify-center">
+          <p className="text-center font-bold mb-2 text-2xl text-white">
+            Edit Info
+          </p>
           <form
-            class="max-w-sm mx-auto w-600 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col max-sm:w-90"
-            onSubmit={(e) => submitHandler(e)}
+            class="max-sm:w-100 mx-auto w-100 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col"
+            submit={(e) => submitHandler(e)}
           >
             <button
-              className="relative left-[-10px] top-[-90px] text-2xl bg-white rounded-full p-1 font-bold w-10 h-10 "
+              className="max-sm:w-10 max-sm:h-10 relative left-[-10px] top-[-90px] text-2xl bg-white rounded-full p-1 font-bold w-10 h-10 "
               onClick={() => setBio(false)}
             >
               X

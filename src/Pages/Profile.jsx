@@ -23,7 +23,6 @@ const Profile = () => {
     e.preventDefault();
     validation(select);
     dispatch(statusReverse());
-    navigate("/profile");
   };
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -44,8 +43,8 @@ const Profile = () => {
       {bio ? (
         <div className="w-full h-screen z-50 bg-pink-600 overflow-hidden transition ease-in flex flex-col justify-center">
           <form
-            class="max-w-sm mx-auto w-600 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col"
-            submit={(e) => submitHandler(e)}
+            class="max-w-sm mx-auto w-600 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col max-sm:w-90"
+            onSubmit={(e) => submitHandler(e)}
           >
             <button
               className="relative left-[-10px] top-[-90px] text-2xl bg-white rounded-full p-1 font-bold w-10 h-10 "
@@ -116,9 +115,7 @@ const Profile = () => {
                   rows="5"
                   cols="50"
                 >
-                  Hello World!Hello World!Hello World!Hello World!Hello
-                  World!Hello World!Hello World!Hello World!Hello World!Hello
-                  World!Hello World!
+                  {select.bio}
                 </textarea>
                 <button
                   className="bg-blue-300 w-full p-4 rounded-3xl mt-5 font-bold"
@@ -150,7 +147,7 @@ const Profile = () => {
                   {selectUser.phoneNumber}
                 </p>
                 <p class="text-gray-800 text-lg text-center">
-                  {selectUser.bio}
+                  {select.bio.length > 50 && select.bio.slice(0, 100)}
                 </p>
                 <button
                   class="text-center text-gray-600 text-xl pt-3 font-bold cursor-pointer "

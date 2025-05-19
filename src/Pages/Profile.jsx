@@ -1,109 +1,181 @@
 import React from "react";
-
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { IoMdArrowBack } from "react-icons/io";
+import {
+  getbio,
+  getFamily,
+  getImage,
+  getName,
+  getPhoneNumber,
+} from "../redux/user";
+import validation from "../Validation/formValidation";
+import { statusReverse } from "../redux/like";
+import { Link } from "react-router-dom";
 const Profile = () => {
+  const [preview, setPreview] = useState("");
+  const [imageName, setImageName] = useState("");
+  const [bio, setBio] = useState(false);
+  const select = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    validation(select);
+    dispatch(statusReverse());
+  };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageName(file.name);
+      const imageUrl = URL.createObjectURL(file); // creates a temporary local URL
+      setPreview(imageUrl);
+      dispatch(getImage(imageUrl));
+    }
+  };
+  const bioHandler = () => {
+    setBio(true);
+  };
+  const selectUser = useSelector((state) => state.user);
+  console.log(select.name, select.family);
   return (
-    <div class="w-full h-screen px-10 pt-10">
-      <div class="relative mt-16 mb-22 max-w-sm mx-auto">
-        <div class="rounded overflow-hidden shadow-md bg-white">
-          <div class="absolute -mt-20 w-full flex justify-center">
-            <div class="h-32 w-32">
-              <img
-                src="https://randomuser.me/api/portraits/women/49.jpg"
-                class="rounded-full object-cover h-full w-full shadow-md"
-              />
+    <>
+      {bio ? (
+        <div className="w-full h-screen z-50 bg-pink-600 overflow-hidden transition ease-in flex flex-col justify-center">
+          <form
+            class="max-w-sm mx-auto w-600 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col"
+            submit={(e) => submitHandler(e)}
+          >
+            <button
+              className="relative left-[-10px] top-[-90px] text-2xl bg-white rounded-full p-1 font-bold w-10 h-10 "
+              onClick={() => setBio(false)}
+            >
+              X
+            </button>
+            <div className="flex flex-col w-full h-100 justify-center gap-3 p-10">
+              <div class="">
+                <label
+                  for="base-input"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Name
+                </label>
+                <input
+                  value={select.name}
+                  type="text"
+                  id="base-input"
+                  onChange={(e) => dispatch(getName(e.target.value))}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </div>
+              <div class="">
+                <label
+                  for="base-input"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Family Name
+                </label>
+                <input
+                  value={select.family}
+                  type="text"
+                  id="base-input"
+                  onChange={(e) => dispatch(getFamily(e.target.value))}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </div>
+              <div>
+                <label
+                  for="small-input"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Phone Number
+                </label>
+                <input
+                  value={select.phoneNumber}
+                  onChange={(e) => dispatch(getPhoneNumber(e.target.value))}
+                  type="text"
+                  id="large-input"
+                  class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="large-input"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Bio
+                </label>
+
+                <textarea
+                  value={select.bio}
+                  type="text"
+                  onChange={(e) => dispatch(getbio(e.target.value))}
+                  id="large-input"
+                  class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  rows="5"
+                  cols="50"
+                >
+                  Hello World!Hello World!Hello World!Hello World!Hello
+                  World!Hello World!Hello World!Hello World!Hello World!Hello
+                  World!Hello World!
+                </textarea>
+                <button
+                  className="bg-blue-300 w-full p-4 rounded-3xl mt-5 font-bold"
+                  type="submit"
+                >
+                  Done
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="px-6 mt-16">
-            <h1 class="font-bold text-3xl text-center mb-1">Carole Steward</h1>
-            <p class="text-gray-800 text-sm text-center">
-              Chief Executive Officer
-            </p>
-            <p class="text-center text-gray-600 text-base pt-3 font-normal">
-              Carole Steward is a visionary CEO known for her exceptional
-              leadership and strategic acumen. With a wealth of experience in
-              the corporate world, she has a proven track record of driving
-              innovation and achieving remarkable business growth.
-            </p>
-            <div class="w-full flex justify-center pt-5 pb-5">
-              <a href="#" class="mx-5">
-                <div aria-label="Github">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#718096"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-github"
-                  >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                </div>
-              </a>
-              <a href="#" class="mx-5">
-                <div aria-label="Twitter">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#718096"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-twitter"
-                  >
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                  </svg>
-                </div>
-              </a>
-              <a href="#" class="mx-5">
-                <div aria-label="Instagram">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#718096"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-instagram"
-                  >
-                    <rect
-                      x="2"
-                      y="2"
-                      width="20"
-                      height="20"
-                      rx="5"
-                      ry="5"
-                    ></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </div>
-              </a>
-            </div>
-          </div>
+          </form>
         </div>
-      </div>
-      <div className="flex flex-row justify-center gap-3">
-        <button className="bg-gray-300 rounded-lg p-2 cursor-pointer font-bold hover:scale-110 transition ease-in-out">
-          Edit name
-        </button>
-        <button className="bg-gray-300 p-1 rounded-lg cursor-pointer font-bold hover:scale-110 transition ease-in-out">
-          Edit Bio
-        </button>
-        <button className="bg-gray-300 p-1 rounded-lg cursor-pointer font-bold hover:scale-110 transition ease-in-out">
-          Edit Number
-        </button>
-      </div>
-    </div>
+      ) : (
+        <div class="w-full h-screen px-10 pt-10">
+          <div class="relative mt-16 mb-10 max-w-sm mx-auto">
+            <div class="rounded overflow-hidden shadow-md bg-white h-150">
+              <div class="absolute -mt-20 w-full flex justify-center">
+                <div class="h-50 w-50">
+                  <img
+                    src={select.image}
+                    class="rounded-full object-cover h-full w-full shadow-md"
+                  />
+                </div>
+              </div>
+              <div class=" flex flex-col gap-5 justify-center px-6 mt-40">
+                <h1 class="font-bold text-3xl text-center mb-1">
+                  {selectUser.name}
+                </h1>
+                <p class="text-gray-800 text-lg text-center">
+                  {selectUser.phoneNumber}
+                </p>
+                <p class="text-gray-800 text-lg text-center">
+                  {selectUser.bio}
+                </p>
+                <button
+                  class="text-center text-gray-600 text-xl pt-3 font-bold cursor-pointer "
+                  onClick={() => bioHandler()}
+                >
+                  Edit your info ...
+                </button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  placeholder="file"
+                  className=" text-center"
+                  onChange={(e) => handleImageChange(e)}
+                />
+              </div>
+            </div>
+          </div>
+          <Link
+            to="/"
+            className="flex justify-center text-white font-bold cursor-pointer "
+          >
+            <IoMdArrowBack style={{ fontSize: "30px" }} />
+            Home
+          </Link>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import People from "../components/People";
 import Contact from "../components/Contact";
 import Form from "../components/Form";
 import { useSelector } from "react-redux";
-import Friends from "./Friends";
 import { useState } from "react";
 const Home = () => {
   const [user, setUser] = useState({ name: "", family: "", phoneNumber: "" });
+  const selectUser = useSelector((state) => state.user);
   const states = useSelector((state) => state.like);
   console.log(states.status);
   return (
@@ -39,9 +38,11 @@ const Home = () => {
               <div className="mt-10 flex justify-between rounded-full bg-fuchsia-400/30 p-7">
                 <div>
                   <p className="text-white/50">
-                    {user.name} {user.family}
+                    {selectUser.name} {selectUser.family}
                   </p>
-                  <p className="text-2xl text-white">00:11:15</p>
+                  <p className="text-2xl text-white">
+                    {selectUser.phoneNumber}
+                  </p>
                 </div>
                 <button className="bg-red-900/70 rounded-full p-5 text-white hover:bg-red-900/90 ease-in-out transition cursor-pointer">
                   Edit

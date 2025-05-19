@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { incremenet, first, second, third, fourth } from "../redux/slice";
+import { incremenet, first, second, third, fourth } from "../redux/like";
 import toast, { Toaster } from "react-hot-toast";
 const People = () => {
   const states = useSelector((state) => state.like);

@@ -11,17 +11,19 @@ import {
 } from "../redux/user";
 import validation from "../Validation/formValidation";
 import { statusReverse } from "../redux/like";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Profile = () => {
   const [preview, setPreview] = useState("");
   const [imageName, setImageName] = useState("");
   const [bio, setBio] = useState(false);
+  const navigate = useNavigate();
   const select = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     validation(select);
     dispatch(statusReverse());
+    navigate("/profile");
   };
   const handleImageChange = (e) => {
     const file = e.target.files[0];

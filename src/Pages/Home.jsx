@@ -3,12 +3,18 @@ import People from "../components/People";
 import Contact from "../components/Contact";
 import Form from "../components/Form";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Home = () => {
   const [user, setUser] = useState({ name: "", family: "", phoneNumber: "" });
   const selectUser = useSelector((state) => state.user);
   const states = useSelector((state) => state.like);
   console.log(states.status);
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
   return (
     <>
       {states.status ? (

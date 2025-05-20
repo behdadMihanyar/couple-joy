@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoMdArrowBack } from "react-icons/io";
+import { FaPerson } from "react-icons/fa6";
+
 import {
   getbio,
   getFamily,
@@ -16,8 +18,15 @@ const Profile = () => {
   const [preview, setPreview] = useState("");
   const [imageName, setImageName] = useState("");
   const [bio, setBio] = useState(false);
+  const [fulltxt, setFulltxt] = useState(false);
   const select = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("Submitted!");
@@ -59,7 +68,7 @@ const Profile = () => {
               <div className="">
                 <label
                   for="base-input"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-md font-medium text-gray-900 dark:text-white"
                 >
                   Name
                 </label>
@@ -74,7 +83,7 @@ const Profile = () => {
               <div class="">
                 <label
                   for="base-input"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-md  font-medium text-gray-900 dark:text-white"
                 >
                   Family Name
                 </label>
@@ -89,7 +98,7 @@ const Profile = () => {
               <div>
                 <label
                   for="small-input"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-md  font-medium text-gray-900 dark:text-white"
                 >
                   Phone Number
                 </label>
@@ -104,7 +113,7 @@ const Profile = () => {
               <div class="mb-5">
                 <label
                   for="large-input"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-md  font-medium text-gray-900 dark:text-white"
                 >
                   Bio
                 </label>
@@ -133,7 +142,7 @@ const Profile = () => {
       ) : (
         <div className="w-full h-screen px-10 pt-10">
           <div className="relative mt-16 mb-10 max-w-sm mx-auto">
-            <div className="rounded overflow-hidden shadow-md bg-white h-150">
+            <div className="rounded overflow-hidden shadow-md bg-white h-auto pb-20">
               <div className="absolute -mt-20 w-full flex justify-center">
                 <div className="h-50 w-50">
                   <img
@@ -143,14 +152,35 @@ const Profile = () => {
                 </div>
               </div>
               <div className=" flex flex-col gap-5 justify-center px-6 mt-40">
+                <FaPerson
+                  style={{
+                    fontSize: "30px",
+                    color: "#FF90BB",
+                    alignSelf: "center",
+                  }}
+                />
+
                 <h1 className="font-bold text-3xl text-center mb-1">
-                  {selectUser.name}
+                  _{selectUser.name}_
                 </h1>
                 <p className="text-gray-800 text-lg text-center">
                   {selectUser.phoneNumber}
                 </p>
+                <h1 className="text-center font-bold text-2xl">_ Bio _</h1>
                 <p className="text-gray-800 text-lg text-center">
-                  {select.bio.length > 50 && select.bio.slice(0, 100)}
+                  {select.bio.length > 50 && fulltxt == false ? (
+                    <>
+                      {select.bio.slice(0, 50)}{" "}
+                      <button
+                        className="cursor-pointer font-bold"
+                        onClick={() => setFulltxt(true)}
+                      >
+                        read more ...
+                      </button>
+                    </>
+                  ) : (
+                    select.bio
+                  )}
                 </p>
                 <button
                   className="text-center text-gray-600 text-xl pt-3 font-bold cursor-pointer "

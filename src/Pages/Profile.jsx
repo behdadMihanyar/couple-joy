@@ -120,7 +120,7 @@ const Profile = () => {
                   {select.bio}
                 </textarea>
                 <button
-                  className="bg-blue-300 w-full p-4 rounded-3xl mt-5 font-bold"
+                  className="bg-blue-300 w-full p-4 rounded-3xl mt-5 font-bold cursor-pointer"
                   type="submit"
                 >
                   Done

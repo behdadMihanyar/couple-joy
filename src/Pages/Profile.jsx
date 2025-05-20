@@ -16,14 +16,12 @@ const Profile = () => {
   const [preview, setPreview] = useState("");
   const [imageName, setImageName] = useState("");
   const [bio, setBio] = useState(false);
-  const navigate = useNavigate();
   const select = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     validation(select);
-    dispatch(statusReverse());
-    navigate("/profile");
+    setBio(true);
   };
   const handleImageChange = (e) => {
     const file = e.target.files[0];

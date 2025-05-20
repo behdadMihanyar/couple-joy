@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,8 +11,7 @@ import {
   getPhoneNumber,
 } from "../redux/user";
 import validation from "../Validation/formValidation";
-import { statusReverse } from "../redux/like";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Profile = () => {
   const [preview, setPreview] = useState("");
   const [imageName, setImageName] = useState("");
@@ -45,7 +45,7 @@ const Profile = () => {
             Edit Info
           </p>
           <form
-            class="max-sm:w-100 mx-auto w-100 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col"
+            class="max-sm:w-85 mx-auto w-100 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col"
             submit={(e) => submitHandler(e)}
           >
             <button

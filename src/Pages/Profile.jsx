@@ -46,7 +46,7 @@ const Profile = () => {
           </p>
           <form
             class="max-sm:w-85 mx-auto w-100 h-150 bg-gradient-to-b from-blue-400/70 to-blue-800/5 rounded-2xl flex justify-center flex-col"
-            submit={(e) => submitHandler(e)}
+            onSubmit={(e) => submitHandler(e)}
           >
             <button
               className="max-sm:w-10 max-sm:h-10 relative left-[-10px] top-[-90px] text-2xl bg-white rounded-full p-1 font-bold w-10 h-10 "

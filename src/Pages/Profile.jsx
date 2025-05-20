@@ -20,8 +20,9 @@ const Profile = () => {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log("Submitted!");
     validation(select);
-    setBio(true);
+    setBio(false);
   };
   const handleImageChange = (e) => {
     const file = e.target.files[0];

@@ -23,25 +23,25 @@ const like = createSlice({
     first: (state) => {
       return {
         ...state,
-        first: false,
+        first: !state.first,
       };
     },
     second: (state) => {
       return {
         ...state,
-        second: false,
+        second: !state.second,
       };
     },
     third: (state) => {
       return {
         ...state,
-        third: false,
+        third: !state.third,
       };
     },
     fourth: (state) => {
       return {
         ...state,
-        fourth: false,
+        fourth: !state.fourth,
       };
     },
     statusReverse: (state) => {

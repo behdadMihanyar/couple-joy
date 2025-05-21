@@ -21,12 +21,7 @@ const Profile = () => {
   const [fulltxt, setFulltxt] = useState(false);
   const select = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("Submitted!");
@@ -50,7 +45,7 @@ const Profile = () => {
   return (
     <>
       {bio ? (
-        <div className="w-full h-screen z-50 bg-pink-600 overflow-hidden transition ease-in flex flex-col justify-center">
+        <div className="w-full h-screen z-50 bg-pink-600 transition ease-in flex flex-col justify-center">
           <p className="text-center font-bold mb-2 text-2xl text-white">
             Edit Info
           </p>
@@ -140,18 +135,18 @@ const Profile = () => {
           </form>
         </div>
       ) : (
-        <div className="w-full h-screen px-10 pt-10">
-          <div className="relative mt-16 mb-10 max-w-sm mx-auto">
-            <div className="rounded overflow-hidden shadow-md bg-white h-auto pb-20">
-              <div className="absolute -mt-20 w-full flex justify-center">
-                <div className="h-50 w-50">
+        <div className="w-full h-full px-7 mb-20">
+          <div className="relative mb-10 max-w-sm mx-auto">
+            <div className="rounded shadow-md bg-white h-auto pb-10">
+              <div className="absolute -mt-15 w-full flex justify-center">
+                <div className="h-35 w-35">
                   <img
                     src={select.image}
                     className="rounded-full object-cover h-full w-full shadow-md"
                   />
                 </div>
               </div>
-              <div className=" flex flex-col gap-5 justify-center px-6 mt-40">
+              <div className=" flex flex-col gap-5 justify-center px-6 pt-25 mt-15">
                 <FaPerson
                   style={{
                     fontSize: "30px",

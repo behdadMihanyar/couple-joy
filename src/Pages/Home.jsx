@@ -4,17 +4,13 @@ import Contact from "../components/Contact";
 import Form from "../components/Form";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const Home = () => {
   const [user, setUser] = useState({ name: "", family: "", phoneNumber: "" });
   const selectUser = useSelector((state) => state.user);
   const states = useSelector((state) => state.like);
   console.log(states.status);
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+
   return (
     <>
       {states.status ? (
@@ -51,7 +47,7 @@ const Home = () => {
                   </p>
                 </div>
                 <button className="bg-red-900/70 rounded-full p-5 text-white hover:bg-red-900/90 ease-in-out transition cursor-pointer">
-                  Edit
+                  <Link to="/profile">Edit</Link>
                 </button>
               </div>
             </div>

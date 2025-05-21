@@ -49,7 +49,7 @@ const People = () => {
             alt=""
             className="w-20"
           />
-          <p className="font-bold text-gray-800">Amirhossein</p>
+          <p className="font-bold text-gray-800">Amir</p>
           {states.second ? (
             <button
               onClick={() => {

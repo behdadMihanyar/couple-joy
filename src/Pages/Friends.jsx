@@ -13,7 +13,7 @@ const Friends = () => {
   console.log(like);
   return (
     <>
-      <div className="flex flex-col items-center justify-center mt-2">
+      <div className="flex flex-col items-center justify-center mt-7">
         <IoIosNotifications fontSize="45" color="white" />
         <p className="font-bold text-white">Notification</p>
       </div>
@@ -30,10 +30,10 @@ const Friends = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col w-full gap-10 p-10 mt-10 max-sm:p-2">
+        <div className="flex flex-col w-full gap-5  mt-10 max-sm:p-2">
           {!like.first && (
             <div className="bg-white rounded-full p-5 flex flex-row justify-between font-bold">
-              <span className="flex gap-2 ">
+              <span className="flex ">
                 <FaUserFriends fontSize="20px" className="max-sm:hidden" />
                 You have sent request to Behdad
               </span>
@@ -47,7 +47,7 @@ const Friends = () => {
           )}
           {!like.second && (
             <div className="bg-white rounded-full p-5 flex flex-row justify-between font-bold">
-              <span className="flex gap-2 ">
+              <span className="flex ">
                 <FaUserFriends fontSize="20px" className="max-sm:hidden" />
                 You have sent request to Amir
               </span>
@@ -62,7 +62,7 @@ const Friends = () => {
           )}
           {!like.third && (
             <div className="bg-white rounded-full p-5 flex flex-row justify-between font-bold">
-              <span className="flex gap-2 ">
+              <span className="flex ">
                 <FaUserFriends fontSize="20px" className="max-sm:hidden" />
                 You have sent request to Mahsa
               </span>
@@ -76,7 +76,7 @@ const Friends = () => {
           )}
           {!like.fourth && (
             <div className="bg-white rounded-full p-5 flex flex-row justify-between font-bold">
-              <span className="flex gap-2 ">
+              <span className="flex ">
                 <FaUserFriends fontSize="20px" className="max-sm:hidden" />
                 You have sent request to Nika
               </span>

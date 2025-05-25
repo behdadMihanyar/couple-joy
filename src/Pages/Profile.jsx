@@ -45,7 +45,7 @@ const Profile = () => {
   return (
     <>
       {bio ? (
-        <div className="w-full h-screen z-50 bg-pink-600 transition ease-in flex flex-col justify-center">
+        <div className="w-full h-screen z-50 bg-linear-65 from-purple-500 to-pink-500 transition ease-in flex flex-col justify-center">
           <p className="text-center font-bold mb-2 text-2xl text-white">
             Edit Info
           </p>
@@ -135,7 +135,7 @@ const Profile = () => {
           </form>
         </div>
       ) : (
-        <div className="w-full h-full px-7 mb-20">
+        <div className="w-full h-full px-7 mb-20 mt-20 ">
           <div className="relative mb-10 max-w-sm mx-auto">
             <div className="rounded shadow-md bg-white h-auto pb-10">
               <div className="absolute -mt-15 w-full flex justify-center">

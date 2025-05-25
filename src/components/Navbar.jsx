@@ -45,7 +45,6 @@ const Navbar = () => {
                 alt=""
                 className="w-6"
               />
-              {counter >= 1 && <span className="txt-sm">{counter}</span>}
             </div>
 
             <Link to="/friends" className="text-center text-amber-50">

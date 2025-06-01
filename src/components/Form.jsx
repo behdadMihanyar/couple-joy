@@ -21,9 +21,7 @@ const Form = () => {
         color: "#fff",
       },
     });
-    console.log(e);
   };
-  console.log(select.name);
   return (
     <>
       <div className="overscroll-none absolute w-full h-screen bg-cover z-10 opacity-90 bg-[url(https://png.pngtree.com/background/20250104/original/pngtree-seamless-stipple-linear-pink-hearts-valentine-s-day-background-aesthetic-vector-picture-image_15231608.jpg)]"></div>

@@ -45,7 +45,7 @@ const Profile = () => {
   return (
     <>
       {bio ? (
-        <div className="w-full h-screen z-50 bg-linear-65 from-purple-500 to-pink-500 transition ease-in flex flex-col justify-center">
+        <div className="w-full h-screen z-50 transition ease-in flex flex-col justify-center">
           <p className="text-center font-bold mb-2 text-2xl text-white">
             Edit Info
           </p>

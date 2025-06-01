@@ -5,12 +5,20 @@ import Form from "../components/Form";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getAdvice } from "../features/advice";
+
 const Home = () => {
+  const [advice, setAdvice] = useState(null);
   const [user, setUser] = useState({ name: "", family: "", phoneNumber: "" });
   const selectUser = useSelector((state) => state.user);
   const states = useSelector((state) => state.like);
-  console.log(states.status);
-
+  useEffect(() => {
+    async function getAd() {
+      return getAdvice(setAdvice);
+    }
+    getAd();
+  }, []);
+  console.log(advice);
   return (
     <>
       {states.status ? (
@@ -69,10 +77,8 @@ const Home = () => {
           <div className="w-full flex justify-center">
             <div className="flex w-full gap-16 rounded-full bg-fuchsia-800/40 p-7 text-white lg:w-300 justify-between ">
               <div>
-                <p className="text-amber-500 font-bold">Next in: 12:12:52</p>
-                <p>
-                  Do any of your partner's friend make you feel uncomfortable?
-                </p>
+                <p className="text-amber-500 font-bold">Today's Qoute</p>
+                <p>{advice}</p>
                 <div className="mt-2 flex gap-2">
                   <div>
                     <img

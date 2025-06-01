@@ -45,7 +45,7 @@ const Navbar = () => {
                 alt=""
                 className="w-6"
               />
-            </div>
+n            </div>
 
             <Link to="/friends" className="text-center text-amber-50">
               {navigate.pathname === "/friends" ? (

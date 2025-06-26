@@ -8,7 +8,7 @@ const People = () => {
   return (
     <div>
       <div className="grid grid-cols-2 gap-3 px-10 mb-20 lg:grid-cols-4">
-        <div className="rounded-2xl bg-purple-800/50 h-50 flex flex-col justify-center gap-3 items-center relative">
+        <div className="rounded-2xl bg-orange-300/50 h-50 flex flex-col justify-center gap-3 items-center relative">
           <img
             src="/images/heart.png"
             alt=""
@@ -67,7 +67,7 @@ const People = () => {
             </div>
           )}
         </div>
-        <div className="rounded-2xl bg-orange-700/50 h-50 flex flex-col justify-center gap-3  items-center relative">
+        <div className="rounded-2xl bg-pink-500/50 h-50 flex flex-col justify-center gap-3  items-center relative">
           <img
             src="/images/heart.png"
             alt=""

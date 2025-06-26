@@ -12,13 +12,9 @@ const Friends = () => {
   const dispatch = useDispatch();
   console.log(like);
   return (
-    <>
-      <div className="flex flex-col items-center justify-center mt-7">
-        <IoIosNotifications fontSize="45" color="white" />
-        <p className="font-bold text-white">Notification</p>
-      </div>
+    <div>
       {like.first && like.second && like.third && like.fourth == true ? (
-        <div className="flex flex-col justify-center font-bold items-center h-100 text-3xl text-white">
+        <div className="flex flex-col justify-center font-bold items-center h-screen text-3xl text-white">
           <div className="text-center mt-7 ">
             <p> No friend request ...</p>
             <Link
@@ -31,6 +27,10 @@ const Friends = () => {
         </div>
       ) : (
         <div className="flex flex-col w-full gap-5  mt-10 max-sm:p-2">
+          <div className="flex flex-col items-center justify-center">
+            <IoIosNotifications fontSize="45" color="white" />
+            <p className="font-bold text-white">Notification</p>
+          </div>
           {!like.first && (
             <div className="bg-white rounded-full p-5 flex flex-row justify-between font-bold">
               <span className="flex ">
@@ -90,7 +90,7 @@ const Friends = () => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

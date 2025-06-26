@@ -1,11 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 const Navbar = () => {
   const navigate = useLocation();
   console.log(navigate);
-  const counter = useSelector((state) => state.like.counter);
   return (
     <div className="w-full">
       <nav>
@@ -21,20 +19,6 @@ const Navbar = () => {
                 <h1 className="font-bold">Home</h1>
               ) : (
                 "Home"
-              )}
-            </Link>
-          </li>
-          <li className="flex flex-col items-center text-center">
-            <Link to="/chat" className="text-center text-amber-50">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/14/14558.png"
-                alt=""
-                className="w-6"
-              />
-              {navigate.pathname === "/chat" ? (
-                <h1 className="font-bold">Chat</h1>
-              ) : (
-                "Chat"
               )}
             </Link>
           </li>

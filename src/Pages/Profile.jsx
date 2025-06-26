@@ -135,10 +135,10 @@ const Profile = () => {
           </form>
         </div>
       ) : (
-        <div className="w-full h-full px-7 mb-20 mt-20 ">
+        <div className="w-full h-screen px-7 pt-50">
           <div className="relative mb-10 max-w-sm mx-auto">
-            <div className="rounded shadow-md bg-white h-auto pb-10">
-              <div className="absolute -mt-15 w-full flex justify-center">
+            <div className="rounded shadow-md bg-white h-auto pb-10 pt-20">
+              <div className="absolute -mt-40 w-full flex justify-center">
                 <div className="h-35 w-35">
                   <img
                     src={select.image}
@@ -146,7 +146,7 @@ const Profile = () => {
                   />
                 </div>
               </div>
-              <div className=" flex flex-col gap-5 justify-center px-6 pt-25 mt-15">
+              <div className=" flex flex-col gap-5 justify-center px-6 ">
                 <FaPerson
                   style={{
                     fontSize: "30px",

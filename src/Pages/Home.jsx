@@ -120,9 +120,9 @@ const Home = () => {
                 />
               </div>
               <div className="flex-1/3">
-                <p className="text-white font-bold">Invite your partner</p>
+                <p className="text-white font-bold">Add Friend</p>
                 <p className="text-white">
-                  Enjoy the full app experience together!
+                  You can add friend from the list below.
                 </p>
               </div>
             </div>

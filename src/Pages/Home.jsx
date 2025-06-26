@@ -29,13 +29,13 @@ const Home = () => {
           <Navbar />
           <div className="lg:flex justify-center flex-col items-center">
             <div className="mt-10 grid grid-cols-2 place-items-center content-center">
-              <div className="ml-[75%] h-30 w-30 rounded-full text-center lg:ml-[5%] ">
+              <div className="max-sm:ml-[55%] max-md:ml-[80%] max-lg:ml-[80%] ml-[40%]  h-30 w-30 rounded-full text-center  ">
                 <img
                   src="https://images.icon-icons.com/3150/PNG/512/user_profile_female_icon_192701.png"
                   alt=""
                 />
               </div>
-              <div className="lg-ml-[87%] mr-[75%] h-30 w-30 rounded-full text-center">
+              <div className="max-sm:mr-[55%] max-md:mr-[80%] max-lg:mr-[80%] mr-[40%]  h-30 w-30 rounded-full text-center">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/4128/4128244.png"
                   alt=""
@@ -104,9 +104,12 @@ const Home = () => {
                     alt=""
                   />
                 </div>
-                <button className="bg-red-900/50 rounded-full p-2 hover:bg-red-900/90 ease-in-out transition">
-                  Answer
-                </button>
+                <a
+                  href="https://api.adviceslip.com/"
+                  className="bg-red-900/50 rounded-full p-2 hover:bg-red-900/90 ease-in-out transition w-15 text-center"
+                >
+                  API
+                </a>
               </div>
             </div>
           </div>

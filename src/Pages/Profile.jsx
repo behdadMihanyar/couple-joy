@@ -135,7 +135,7 @@ const Profile = () => {
           </form>
         </div>
       ) : (
-        <div className="w-full h-screen px-7 pt-50">
+        <div className="w-full h-screen px-7 pt-25">
           <div className="relative mb-10 max-w-sm mx-auto">
             <div className="rounded shadow-md bg-white h-auto pb-10 pt-20">
               <div className="absolute -mt-40 w-full flex justify-center">
@@ -154,7 +154,6 @@ const Profile = () => {
                     alignSelf: "center",
                   }}
                 />
-
                 <h1 className="font-bold text-3xl text-center mb-1">
                   _{selectUser.name}_
                 </h1>
